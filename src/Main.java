@@ -5,50 +5,44 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Picture picture_1 = new Picture(Color.RED, 100, 0.06, 5);
-        createWindow("Лемниската Бернулли (красная)", picture_1);
 
-        Picture picture_2 = new Picture(Color.BLUE, 150, 0.05, 4);
-        createWindow("Лемниската Бернулли (синяя)", picture_2);
+        // 4 набора параметров графиков
+        GraphParams g1 = new GraphParams(Color.RED, 100, 0.06, 5);
+        GraphParams g2 = new GraphParams(Color.BLUE, 150, 0.05, 4);
+        GraphParams g3 = new GraphParams(Color.GREEN, 200, 0.04, 3);
+        GraphParams g4 = new GraphParams(Color.MAGENTA, 250, 0.03, 2);
 
-        Picture picture_3 = new Picture(Color.GREEN, 200, 0.04, 3);
-        createWindow("Лемниската Бернулли (зеленая)", picture_3);
+        // 4 отдельных окна с разными графиками
+        createWindow("Лемниската Бернулли (красная)", makePicture(g1));
+        createWindow("Лемниската Бернулли (синяя)", makePicture(g2));
+        createWindow("Лемниската Бернулли (зелёная)", makePicture(g3));
+        createWindow("Лемниската Бернулли (розовая)", makePicture(g4));
 
-        Picture picture_4 = new Picture(Color.MAGENTA, 250, 0.03, 2);
-        createWindow("Лемниската Бернулли (розовая)", picture_4);
+        // Общее окно со всеми графиками
+        Picture combined = new Picture();
+        combined.graphs.add(g1);
+        combined.graphs.add(g2);
+        combined.graphs.add(g3);
+        combined.graphs.add(g4);
 
-        /*Picture picture_5 = new Picture(Color.RED, 100, 0.06, 5);
-        Picture picture_6 = new Picture(Color.BLUE, 150, 0.05, 4);
-        Picture picture_7 = new Picture(Color.GREEN, 200, 0.04, 3);
-        Picture picture_8 = new Picture(Color.MAGENTA, 250, 0.03, 2);
-
-        JFrame frameAll = new JFrame("Лемнискаты Бернулли вместе");
-        frameAll.setSize(600, 600);
-        frameAll.setResizable(false);
-        frameAll.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        frameAll.add(picture_5);
-        frameAll.add(picture_6);
-        frameAll.add(picture_7);
-        frameAll.add(picture_8);
-
-        frameAll.setVisible(true);
-
-        picture_5.start();
-        picture_6.start();
-        picture_7.start();
-        picture_8.start();*/
+        createWindow("Общее окно — все графики", combined);
     }
 
+    // Создаёт Picture, добавляет в него один график
+    private static Picture makePicture(GraphParams g) {
+        Picture p = new Picture();
+        p.graphs.add(g);
+        return p;
+    }
+
+    // Создание окна
     private static void createWindow(String title, Picture picture) {
         JFrame frame = new JFrame(title);
         frame.setSize(600, 600);
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         frame.add(picture);
         frame.setVisible(true);
-
         picture.start();
     }
 }

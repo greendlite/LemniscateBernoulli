@@ -27,7 +27,7 @@ public class Picture extends JPanel implements Runnable {
         }
     }
 
-    // Метод Runnable, который вызывается, когда создается новый поток
+    // Метод интерфейса Runnable, который вызывается, когда создается новый поток
     @Override
     public void run() {
         System.out.println("Поток запущен: " + Thread.currentThread().getName());

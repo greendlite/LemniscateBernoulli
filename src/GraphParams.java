@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class GraphParams {
-    public Color color; // Поле, которое будет держать в себе цвет карандаша
+    public Color color; // Поле, которое будет держать в себе цвет линии
     public int a; // Масштаб лемнискаты — чем больше число, тем больше рисунок
     public double step; // Шаг изменения параметра t. Чем меньше шаг, тем больше точек и более гладкая кривая
     public int pointSize; // Размер точки для отрисовки

@@ -25,7 +25,7 @@ public class Main {
         combined.graphs.add(g3);
         combined.graphs.add(g4);
 
-        createWindow("Общее окно — все графики", combined);
+        createWindow("Общее окно со всеми графики", combined);
     }
 
     // Создаёт Picture, добавляет в него один график
